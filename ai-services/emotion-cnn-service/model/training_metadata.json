@@ -1,0 +1,33 @@
+{
+  "classes": [
+    "Nervous",
+    "Scared",
+    "Confused"
+  ],
+  "image_size": [
+    96,
+    96
+  ],
+  "architecture": [
+    "Conv2D",
+    "ReLU",
+    "MaxPooling2D",
+    "Conv2D",
+    "ReLU",
+    "MaxPooling2D",
+    "Conv2D",
+    "ReLU",
+    "MaxPooling2D",
+    "Flatten",
+    "Dense",
+    "Softmax"
+  ],
+  "train_images": 630,
+  "validation_images": 135,
+  "test_images": 135,
+  "best_validation_accuracy": 1.0,
+  "test_accuracy": 0.9407407641410828,
+  "test_loss": 0.2862052619457245,
+  "training_date": "2026-08-30",
+  "model_file": "emotion_cnn.keras"
+}

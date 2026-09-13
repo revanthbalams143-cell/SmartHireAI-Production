@@ -1,0 +1,510 @@
+/* SmartHire Live Interview - final visual isolation and usability overrides */
+html, body.live-room-clean { min-height:100%; }
+body.live-room-clean {
+  margin:0 !important;
+  background:#090d18 !important;
+  color:#edf2ff !important;
+  overflow-x:hidden !important;
+}
+body.live-room-clean .clean-live-main {
+  width:min(1500px, calc(100% - 32px)) !important;
+  max-width:1500px !important;
+  margin:0 auto !important;
+  padding:28px 0 150px !important;
+}
+body.live-room-clean .clean-live-header h1,
+body.live-room-clean .clean-card-heading h2,
+body.live-room-clean .clean-question-number,
+body.live-room-clean .clean-question-text,
+body.live-room-clean .sh-advanced-head h3,
+body.live-room-clean .clean-answer-heading h3,
+body.live-room-clean .clean-live-header p { color:#f5f7ff !important; }
+body.live-room-clean .clean-live-header p { color:#aeb9d3 !important; }
+body.live-room-clean .clean-eyebrow.dark { color:#9d8cff !important; }
+
+body.live-room-clean .clean-video-card,
+body.live-room-clean .clean-question-card,
+body.live-room-clean .sh-live-advanced-card {
+  background:#11182b !important;
+  border:1px solid #283452 !important;
+  color:#edf2ff !important;
+  box-shadow:0 18px 48px rgba(0,0,0,.24) !important;
+}
+body.live-room-clean .clean-video-frame { background:#060a13 !important; border-color:#2b3654 !important; }
+body.live-room-clean .clean-video-placeholder strong { color:#edf2ff !important; }
+body.live-room-clean .clean-video-placeholder span { color:#93a0bb !important; }
+body.live-room-clean .clean-device-status,
+body.live-room-clean .sh-insight-metrics > div,
+body.live-room-clean .sh-system-list > div {
+  background:#0d1424 !important;
+  border-color:#293654 !important;
+  color:#dce5f7 !important;
+}
+body.live-room-clean .clean-device-status span,
+body.live-room-clean .sh-insight-metrics span,
+body.live-room-clean .sh-system-list span { color:#93a0bb !important; }
+body.live-room-clean .clean-device-status strong,
+body.live-room-clean .sh-insight-metrics strong,
+body.live-room-clean .sh-system-list strong { color:#eef3ff !important; }
+body.live-room-clean .sh-ai-tip,
+body.live-room-clean .sh-system-note { background:#171d34 !important; border-color:#354265 !important; color:#dce4f6 !important; }
+body.live-room-clean .sh-ai-tip p { color:#aeb9d3 !important; }
+
+body.live-room-clean .clean-question-card { overflow:visible !important; }
+body.live-room-clean .clean-question-tags span { background:#28205a !important; color:#dcd5ff !important; border:1px solid #4b3c86 !important; }
+body.live-room-clean .clean-question-tags span:nth-child(2) { background:#123c2b !important; color:#9de4be !important; border-color:#245f45 !important; }
+body.live-room-clean .clean-question-tags #interviewAnswerMode { background:#392b12 !important; color:#ffd873 !important; border-color:#665124 !important; }
+body.live-room-clean .clean-progress-track { background:#202a42 !important; }
+body.live-room-clean .clean-progress-fill { background:linear-gradient(90deg,#6d35e8,#9b78ff) !important; }
+
+/* MCQ cards */
+body.live-room-clean .clean-mcq-options { display:grid; gap:12px; margin:20px 0 12px; }
+body.live-room-clean .clean-mcq-option {
+  min-height:54px !important;
+  display:flex !important;
+  align-items:center !important;
+  gap:12px !important;
+  padding:14px 16px !important;
+  border:1px solid #34415f !important;
+  border-radius:14px !important;
+  background:#0c1425 !important;
+  color:#eef3ff !important;
+  cursor:pointer !important;
+  box-shadow:none !important;
+  transform:none !important;
+}
+body.live-room-clean .clean-mcq-option:hover { border-color:#7658e8 !important; background:#15132d !important; }
+body.live-room-clean .clean-mcq-option.selected { border-color:#8b68ff !important; background:#241b46 !important; box-shadow:0 0 0 3px rgba(139,104,255,.14) !important; }
+body.live-room-clean .clean-mcq-option input { accent-color:#8b68ff !important; width:18px; height:18px; flex:0 0 auto; }
+body.live-room-clean .clean-mcq-option span { color:#eef3ff !important; font-weight:600; line-height:1.45; }
+
+body.live-room-clean .clean-answer-section textarea {
+  background:#0c1425 !important;
+  color:#eef3ff !important;
+  border:1px solid #34415f !important;
+}
+body.live-room-clean .clean-answer-section textarea::placeholder { color:#75839e !important; }
+body.live-room-clean .clean-answer-section { color:#dce5f7 !important; }
+body.live-room-clean .clean-transcript-preview { background:#0b1220 !important; color:#aeb9d3 !important; border-color:#2e3a57 !important; }
+
+/* Fixed interview controls: always reachable, never requires scrolling to the page bottom. */
+body.live-room-clean .clean-interview-footer {
+  position:fixed !important;
+  left:50% !important;
+  bottom:14px !important;
+  transform:translateX(-50%) !important;
+  width:min(1500px, calc(100% - 32px)) !important;
+  margin:0 !important;
+  z-index:5000 !important;
+  padding:12px !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:space-between !important;
+  gap:12px !important;
+  background:rgba(14,20,36,.94) !important;
+  border:1px solid #3a4665 !important;
+  border-radius:18px !important;
+  box-shadow:0 22px 60px rgba(0,0,0,.48) !important;
+  backdrop-filter:blur(16px) !important;
+}
+body.live-room-clean .clean-interview-footer button {
+  min-height:46px !important;
+  border-radius:12px !important;
+  font-weight:800 !important;
+  white-space:nowrap !important;
+}
+body.live-room-clean .clean-interview-footer .secondary-btn { background:#1a2338 !important; color:#eaf0ff !important; border:1px solid #3b496b !important; }
+body.live-room-clean .clean-interview-footer .primary-btn { background:linear-gradient(135deg,#6d35e8,#8d63ff) !important; color:#fff !important; border:1px solid #8d63ff !important; }
+body.live-room-clean .clean-interview-footer .danger-btn { background:#3b1820 !important; color:#ffb9c0 !important; border:1px solid #8e3d4c !important; }
+body.live-room-clean .clean-interview-footer button:hover:not(:disabled) { transform:translateY(-1px); filter:brightness(1.06); }
+body.live-room-clean .clean-interview-footer button:disabled { opacity:.45 !important; cursor:not-allowed !important; }
+
+body.live-room-clean .clean-post-interview-actions {
+  background:#11182b !important;
+  border:1px solid #2b3855 !important;
+  border-radius:18px !important;
+}
+body.live-room-clean .clean-post-interview-actions button { min-height:46px !important; }
+
+/* Evaluation is a post-interview surface, not part of the live question workspace. */
+body.live-room-clean #interviewEvaluationResult {
+  background:#11182b !important;
+  border:1px solid #2b3855 !important;
+  color:#edf2ff !important;
+  box-shadow:0 18px 48px rgba(0,0,0,.25) !important;
+}
+body.live-room-clean #interviewEvaluationResult .evaluation-header h3,
+body.live-room-clean #interviewEvaluationResult .evaluation-header p,
+body.live-room-clean #interviewEvaluationResult h4,
+body.live-room-clean #interviewEvaluationResult .evaluation-metric span,
+body.live-room-clean #interviewEvaluationResult .evaluation-list-card p { color:#edf2ff !important; }
+body.live-room-clean #interviewEvaluationResult .evaluation-subtitle,
+body.live-room-clean #interviewEvaluationResult .evaluation-metric span { color:#9eabc2 !important; }
+body.live-room-clean #interviewEvaluationResult .evaluation-breakdown-card,
+body.live-room-clean #interviewEvaluationResult .evaluation-list-card { background:#0d1424 !important; border-color:#2c3957 !important; color:#edf2ff !important; }
+body.live-room-clean #interviewEvaluationResult .evaluation-rating-chip { background:#1d1737 !important; border-color:#4d3c7d !important; color:#dcd4ff !important; }
+
+@media (max-width:900px) {
+  body.live-room-clean .clean-interview-footer { width:calc(100% - 18px) !important; bottom:8px !important; flex-direction:column !important; align-items:stretch !important; }
+  body.live-room-clean .clean-control-group,
+  body.live-room-clean .clean-control-group.right { width:100% !important; display:grid !important; grid-template-columns:repeat(2,minmax(0,1fr)) !important; gap:8px !important; }
+  body.live-room-clean .clean-control-group button { width:100% !important; }
+  body.live-room-clean .clean-live-main { width:calc(100% - 18px) !important; padding-bottom:250px !important; }
+}
+
+/* Completion dialog must sit above the fixed control bar and every dashboard card. */
+body.live-room-clean .sh-completion-modal { z-index:10000 !important; }
+body.live-room-clean .sh-completion-backdrop { position:absolute !important; inset:0 !important; background:rgba(3,6,14,.78) !important; backdrop-filter:blur(8px) !important; }
+body.live-room-clean .sh-completion-card { z-index:10001 !important; background:#11182b !important; border:1px solid #4a3b73 !important; color:#edf2ff !important; box-shadow:0 35px 100px rgba(0,0,0,.58) !important; }
+body.live-room-clean .sh-completion-card h2 { color:#fff !important; }
+body.live-room-clean .sh-completion-card p { color:#b9c4d9 !important; }
+body.live-room-clean .sh-completion-scores > div { background:#0d1424 !important; border-color:#34415f !important; }
+body.live-room-clean .sh-completion-scores span { color:#93a0bb !important; }
+body.live-room-clean .sh-completion-scores strong { color:#b49bff !important; }
+body.live-room-clean .sh-completion-close { background:#202940 !important; color:#eef3ff !important; }
+
+/* Final light-mode readability and grid hardening */
+body.live-room-clean:not(.dark-mode) .sh-live-advanced-card{background:#ffffff!important;border:1px solid #e5e2ef!important;color:#17152b!important;box-shadow:0 14px 34px rgba(45,34,88,.08)!important;}
+body.live-room-clean:not(.dark-mode) .sh-advanced-head h3{color:#17152b!important;}
+body.live-room-clean:not(.dark-mode) .sh-advanced-head .clean-eyebrow.dark{color:#71688a!important;}
+body.live-room-clean:not(.dark-mode) .sh-context-role{color:#2b2640!important;}
+body.live-room-clean:not(.dark-mode) .sh-context-card>p{color:#5d5870!important;background:#f8f7fc!important;border-color:#e7e2f0!important;}
+body.live-room-clean:not(.dark-mode) .sh-question-meta-grid>div,
+body.live-room-clean:not(.dark-mode) .sh-insight-metrics>div,
+body.live-room-clean:not(.dark-mode) .sh-system-list>div{background:#f8f8fc!important;border:1px solid #e6e2ee!important;}
+body.live-room-clean:not(.dark-mode) .sh-question-meta-grid span,
+body.live-room-clean:not(.dark-mode) .sh-insight-metrics span,
+body.live-room-clean:not(.dark-mode) .sh-system-list span{color:#706a81!important;}
+body.live-room-clean:not(.dark-mode) .sh-question-meta-grid strong,
+body.live-room-clean:not(.dark-mode) .sh-insight-metrics strong{color:#27233a!important;}
+body.live-room-clean:not(.dark-mode) .sh-insight-metrics em{color:#6e6880!important;}
+body.live-room-clean:not(.dark-mode) .sh-system-list strong{color:#198658!important;background:#ecfbf3!important;}
+body.live-room-clean:not(.dark-mode) .sh-system-list strong.warning{color:#a56b08!important;background:#fff7df!important;}
+body.live-room-clean:not(.dark-mode) .sh-system-list strong.error{color:#b4232d!important;background:#fff0f1!important;}
+body.live-room-clean:not(.dark-mode) .sh-system-note{background:#ecfbf3!important;color:#287451!important;border-color:#d3f0df!important;}
+body.live-room-clean:not(.dark-mode) .sh-system-note.warning{background:#fff8e5!important;color:#8a6208!important;border-color:#f6e5b6!important;}
+body.live-room-clean:not(.dark-mode) .sh-system-note.error{background:#fff1f2!important;color:#b4232d!important;border-color:#f2c8cc!important;}
+body.live-room-clean:not(.dark-mode) .sh-pro-controls button{background:#fff!important;color:#493c6c!important;border:1px solid #e1dced!important;}
+body.live-room-clean:not(.dark-mode) .sh-pro-controls button:hover{background:#faf8ff!important;border-color:#cfc0ff!important;color:#6737d9!important;}
+body.live-room-clean .sh-live-advanced-grid{width:100%;min-width:0;align-items:stretch;}
+body.live-room-clean .sh-live-advanced-card{min-width:0;overflow:hidden;}
+@media(max-width:1180px){body.live-room-clean .sh-live-advanced-grid{grid-template-columns:repeat(6,minmax(0,1fr));}body.live-room-clean .sh-progress-card,body.live-room-clean .sh-context-card,body.live-room-clean .sh-insights-card,body.live-room-clean .sh-system-card,body.live-room-clean .sh-controls-card{grid-column:span 6!important;}}
+@media(min-width:1181px){body.live-room-clean .sh-insights-card{grid-column:span 5;}body.live-room-clean .sh-system-card{grid-column:span 4;}body.live-room-clean .sh-controls-card{grid-column:span 3;}}
+
+/* ================================================================
+   FINAL LIGHT-MODE EVALUATION CONTRAST
+   Keep every score/value readable when the live room is in Light mode.
+   ================================================================ */
+body.live-room-clean:not(.dark-mode) #interviewEvaluationResult,
+body.live-room-clean:not(.dark-mode) #interviewEvaluationResult .evaluation-breakdown-card,
+body.live-room-clean:not(.dark-mode) #interviewEvaluationResult .evaluation-list-card,
+body.live-room-clean:not(.dark-mode) #interviewEvaluationResult .evaluation-metric {
+  color:#17152b !important;
+}
+body.live-room-clean:not(.dark-mode) #interviewEvaluationResult .evaluation-metric span,
+body.live-room-clean:not(.dark-mode) #interviewEvaluationResult .evaluation-breakdown-card p,
+body.live-room-clean:not(.dark-mode) #interviewEvaluationResult .evaluation-list-card p {
+  color:#5c5870 !important;
+}
+body.live-room-clean:not(.dark-mode) #interviewEvaluationResult .evaluation-metric strong,
+body.live-room-clean:not(.dark-mode) #interviewEvaluationResult .evaluation-breakdown-card strong,
+body.live-room-clean:not(.dark-mode) #interviewEvaluationResult .evaluation-list-card strong,
+body.live-room-clean:not(.dark-mode) #interviewEvaluationResult .evaluation-ring span,
+body.live-room-clean:not(.dark-mode) #interviewEvaluationResult .evaluation-ring small,
+body.live-room-clean:not(.dark-mode) #interviewEvaluationResult [id^="eval"][id$="Score"],
+body.live-room-clean:not(.dark-mode) #interviewEvaluationResult [id^="completion"] {
+  color:#21183f !important;
+  font-weight:800 !important;
+  opacity:1 !important;
+  text-shadow:none !important;
+}
+body.live-room-clean:not(.dark-mode) #interviewEvaluationResult .evaluation-bar {
+  background:#e3e0eb !important;
+}
+body.live-room-clean:not(.dark-mode) #interviewEvaluationResult .evaluation-bar > div {
+  background:linear-gradient(90deg,#6d35e8,#8b68ff) !important;
+}
+body.live-room-clean:not(.dark-mode) #speechGrammarQuality,
+body.live-room-clean:not(.dark-mode) #speechPace,
+body.live-room-clean:not(.dark-mode) #speechFillerWords,
+body.live-room-clean:not(.dark-mode) #speechAvgResponseLength,
+body.live-room-clean:not(.dark-mode) #speechCommunicationScore,
+body.live-room-clean:not(.dark-mode) #speechPronunciationScore,
+body.live-room-clean:not(.dark-mode) #speechTranscriptionConfidence,
+body.live-room-clean:not(.dark-mode) #speechGrammarIssues {
+  color:#21183f !important;
+  font-weight:800 !important;
+  opacity:1 !important;
+}
+body.live-room-clean:not(.dark-mode) #speechCommunicationInsights {
+  color:#514c64 !important;
+}
+
+/* Dark mode remains high contrast as well. */
+body.dark-mode.live-room-clean #interviewEvaluationResult .evaluation-metric strong,
+body.dark-mode.live-room-clean #interviewEvaluationResult .evaluation-breakdown-card strong,
+body.dark-mode.live-room-clean #interviewEvaluationResult .evaluation-list-card strong,
+body.dark-mode.live-room-clean #interviewEvaluationResult .evaluation-ring span,
+body.dark-mode.live-room-clean #interviewEvaluationResult .evaluation-ring small,
+body.dark-mode.live-room-clean #interviewEvaluationResult [id^="eval"][id$="Score"],
+body.dark-mode.live-room-clean #interviewEvaluationResult [id^="completion"],
+body.dark-mode.live-room-clean #speechGrammarQuality,
+body.dark-mode.live-room-clean #speechPace,
+body.dark-mode.live-room-clean #speechFillerWords,
+body.dark-mode.live-room-clean #speechAvgResponseLength,
+body.dark-mode.live-room-clean #speechCommunicationScore,
+body.dark-mode.live-room-clean #speechPronunciationScore,
+body.dark-mode.live-room-clean #speechTranscriptionConfidence,
+body.dark-mode.live-room-clean #speechGrammarIssues {
+  color:#f4f7ff !important;
+  font-weight:800 !important;
+  opacity:1 !important;
+}
+
+/* ================================================================
+   SECURE EXAM MODE + FIXED CAMERA
+   The camera remains visible while the interview content scrolls.
+   Fullscreen is requested only from an explicit user click because
+   browsers block programmatic fullscreen requests without a gesture.
+   ================================================================ */
+body.live-room-clean.camera-pinned .clean-live-workspace {
+  display:block !important;
+  position:relative !important;
+  min-height:0 !important;
+}
+body.live-room-clean.camera-pinned .clean-video-card {
+  position:fixed !important;
+  top:92px !important;
+  right:24px !important;
+  width:300px !important;
+  max-width:calc(100vw - 48px) !important;
+  margin:0 !important;
+  z-index:4200 !important;
+  padding:14px !important;
+  box-shadow:0 20px 55px rgba(12,18,36,.28) !important;
+}
+body.live-room-clean.camera-pinned .clean-video-card .clean-video-frame {
+  aspect-ratio:16/10 !important;
+  max-height:190px !important;
+}
+body.live-room-clean.camera-pinned .clean-video-card .clean-device-grid {
+  grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  gap:6px !important;
+  margin-top:8px !important;
+}
+body.live-room-clean.camera-pinned .clean-video-card .clean-device-status {
+  padding:7px 8px !important;
+  font-size:10px !important;
+}
+body.live-room-clean.camera-pinned .clean-video-card .clean-device-actions,
+body.live-room-clean.camera-pinned .clean-video-card .clean-inline-error {
+  display:none !important;
+}
+body.live-room-clean.camera-pinned .clean-question-card {
+  width:100% !important;
+  max-width:none !important;
+  min-height:0 !important;
+}
+body.live-room-clean.camera-pinned .sh-live-advanced-grid,
+body.live-room-clean.camera-pinned .clean-post-interview-actions,
+body.live-room-clean.camera-pinned #interviewEvaluationResult,
+body.live-room-clean.camera-pinned #interviewEvaluationLoading {
+  width:100% !important;
+}
+
+/* Leave a safe visual zone so the fixed camera never covers the question. */
+body.live-room-clean.camera-pinned .clean-question-card {
+  padding-right:340px !important;
+}
+
+/* Exam mode removes accidental browser-like page chrome and keeps the
+   SmartHire header + controls usable inside the fullscreen document. */
+body.live-room-clean.exam-mode {
+  overflow-y:auto !important;
+}
+body.live-room-clean.exam-mode .clean-live-topbar {
+  position:sticky !important;
+  top:0 !important;
+  z-index:4100 !important;
+}
+body.live-room-clean.exam-mode .clean-interview-footer {
+  position:fixed !important;
+  z-index:4300 !important;
+}
+body.live-room-clean.exam-mode .clean-live-main {
+  padding-bottom:170px !important;
+}
+
+/* Fullscreen entry gate */
+.sh-exam-gate {
+  position:fixed;
+  inset:0;
+  z-index:20000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+  background:rgba(7,11,23,.78);
+  backdrop-filter:blur(12px);
+}
+.sh-exam-gate.hidden { display:none !important; }
+.sh-exam-gate-card {
+  width:min(560px,100%);
+  background:#fff;
+  color:#17152b;
+  border:1px solid #e4dff0;
+  border-radius:26px;
+  padding:32px;
+  text-align:center;
+  box-shadow:0 30px 90px rgba(0,0,0,.28);
+}
+.sh-exam-gate-icon {
+  width:62px;height:62px;margin:0 auto 16px;border-radius:18px;
+  display:grid;place-items:center;background:#eee8ff;color:#6d35e8;font-size:25px;
+}
+.sh-exam-gate-kicker { font-size:11px;font-weight:800;letter-spacing:.16em;color:#7454c8; }
+.sh-exam-gate-card h2 { margin:8px 0 10px;font-size:28px;color:#17152b; }
+.sh-exam-gate-card p { margin:0 auto 18px;max-width:470px;line-height:1.65;color:#625d73; }
+.sh-exam-gate-checks { display:grid;grid-template-columns:1fr;gap:8px;text-align:left;margin:0 auto 20px;max-width:400px; }
+.sh-exam-gate-checks span { display:flex;gap:9px;align-items:center;font-size:13px;font-weight:700;color:#39334b; }
+.sh-exam-gate-checks i { color:#28a86b; }
+.sh-exam-enter-btn { min-height:50px;padding:0 22px; }
+.sh-exam-gate-card small { display:block;margin-top:12px;color:#8b849b;line-height:1.5; }
+
+.sh-fullscreen-reentry {
+  position:fixed;
+  left:50%;
+  bottom:92px;
+  transform:translate(-50%,20px);
+  z-index:21000;
+  display:flex;
+  align-items:center;
+  gap:14px;
+  width:min(760px,calc(100vw - 28px));
+  padding:12px 14px;
+  border:1px solid #f0c9ce;
+  border-radius:14px;
+  background:#fff4f5;
+  color:#8f2632;
+  box-shadow:0 18px 45px rgba(60,10,20,.18);
+  opacity:0;
+  pointer-events:none;
+  transition:.2s ease;
+}
+.sh-fullscreen-reentry.visible { opacity:1;transform:translate(-50%,0);pointer-events:auto; }
+.sh-fullscreen-reentry span { flex:1;font-size:13px;font-weight:700; }
+.sh-fullscreen-reentry button { white-space:nowrap; }
+
+body.dark-mode.live-room-clean .sh-exam-gate-card { background:#11182b;color:#f4f7ff;border-color:#34415f; }
+body.dark-mode.live-room-clean .sh-exam-gate-card h2 { color:#fff; }
+body.dark-mode.live-room-clean .sh-exam-gate-card p { color:#b9c4d9; }
+body.dark-mode.live-room-clean .sh-exam-gate-checks span { color:#e2e7f2; }
+body.dark-mode.live-room-clean .sh-exam-gate-card small { color:#99a6bf; }
+body.dark-mode.live-room-clean .sh-fullscreen-reentry { background:#351b23;border-color:#7c3c48;color:#ffd0d5; }
+
+body.live-room-clean:not(.dark-mode) .sh-exam-gate-card { background:#fff;color:#17152b; }
+body.live-room-clean:not(.dark-mode) .sh-exam-gate-card h2 { color:#17152b; }
+
+@media(max-width:900px){
+  body.live-room-clean.camera-pinned .clean-video-card {
+    top:78px !important;
+    right:12px !important;
+    width:220px !important;
+    max-width:calc(100vw - 24px) !important;
+    padding:9px !important;
+  }
+  body.live-room-clean.camera-pinned .clean-video-card .clean-video-frame { max-height:135px !important; }
+  body.live-room-clean.camera-pinned .clean-question-card { padding-right:0 !important; padding-top:175px !important; }
+  .sh-exam-gate-card { padding:24px 18px; }
+  .sh-exam-gate-card h2 { font-size:22px; }
+  .sh-fullscreen-reentry { flex-direction:column;align-items:stretch;bottom:110px; }
+}
+
+/* ================================================================
+   FINAL CAMERA + LIVE SIGNALS VISIBILITY FIX (2026-08-22)
+   Reserve a real right-side lane for the pinned camera so it never
+   covers question/insight/system content while the page scrolls.
+   ================================================================ */
+@media (min-width: 1101px) {
+  body.live-room-clean.camera-pinned .clean-live-main {
+    box-sizing: border-box !important;
+    padding-right: 340px !important;
+    width: min(1500px, 95vw) !important;
+  }
+  body.live-room-clean.camera-pinned .clean-question-card {
+    padding-right: 20px !important;
+  }
+  body.live-room-clean.camera-pinned .clean-video-card {
+    top: 92px !important;
+    right: 18px !important;
+    width: 300px !important;
+  }
+}
+
+/* Keep the fixed camera fully visible and readable. */
+body.live-room-clean.camera-pinned .clean-video-card .clean-video-frame video {
+  object-fit: cover !important;
+  min-height: 0 !important;
+}
+body.live-room-clean.camera-pinned .clean-video-card .clean-card-heading h2 {
+  font-size: 16px !important;
+}
+body.live-room-clean.camera-pinned .clean-video-card .clean-ready-pill.on {
+  background: #dff8eb !important;
+  color: #16834f !important;
+}
+body.live-room-clean.camera-pinned .clean-video-card .clean-ready-pill.off {
+  background: #f2f4f8 !important;
+  color: #68748a !important;
+}
+
+/* Live signal values must remain high contrast in both themes. */
+body.live-room-clean .sh-insight-metrics strong,
+body.live-room-clean .sh-system-list strong,
+body.live-room-clean .sh-insight-metrics em,
+body.live-room-clean .sh-system-summary {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+body.live-room-clean:not(.dark-mode) .sh-insight-metrics strong,
+body.live-room-clean:not(.dark-mode) .sh-system-list strong,
+body.live-room-clean:not(.dark-mode) .sh-insight-metrics em {
+  color: #16213a !important;
+}
+body.dark-mode.live-room-clean .sh-insight-metrics strong,
+body.dark-mode.live-room-clean .sh-system-list strong,
+body.dark-mode.live-room-clean .sh-insight-metrics em {
+  color: #f4f7ff !important;
+}
+
+/* Status classes used by the synchronized live-state controller. */
+body.live-room-clean .sh-system-list strong.ok {
+  color: #16834f !important;
+  background: #e7f8ef !important;
+}
+body.live-room-clean .sh-system-list strong.warning {
+  color: #9a6700 !important;
+  background: #fff4d6 !important;
+}
+body.live-room-clean .sh-system-list strong.error {
+  color: #a61b2b !important;
+  background: #ffe8eb !important;
+}
+body.dark-mode.live-room-clean .sh-system-list strong.ok {
+  color: #83edbb !important;
+  background: #123d2c !important;
+}
+body.dark-mode.live-room-clean .sh-system-list strong.warning {
+  color: #ffe08a !important;
+  background: #3b3220 !important;
+}
+body.dark-mode.live-room-clean .sh-system-list strong.error {
+  color: #ffb0ba !important;
+  background: #351c24 !important;
+}
+
+@media (max-width: 1100px) {
+  body.live-room-clean.camera-pinned .clean-live-main {
+    padding-right: 0 !important;
+  }
+}

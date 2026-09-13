@@ -1,0 +1,123 @@
+services:
+  - type: web
+    name: smarthire-backend
+    runtime: docker
+    plan: starter
+    dockerfilePath: ./smarthire-backend/Dockerfile
+    dockerContext: ./smarthire-backend
+    healthCheckPath: /api/health
+    envVars:
+      - key: SPRING_DATASOURCE_URL
+        sync: false
+      - key: SPRING_DATASOURCE_USERNAME
+        sync: false
+      - key: SPRING_DATASOURCE_PASSWORD
+        sync: false
+      - key: APP_JWT_SECRET
+        generateValue: true
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: ADMIN_BOOTSTRAP_ENABLED
+        value: false
+      - key: ADMIN_DEFAULT_EMAIL
+        sync: false
+      - key: ADMIN_DEFAULT_PASSWORD
+        sync: false
+      - key: ADMIN_DEFAULT_NAME
+        sync: false
+      - key: AI_WHISPER_URL
+        fromService: {name: smarthire-whisper, type: pserv, property: hostport}
+      - key: AI_DEEPFACE_URL
+        fromService: {name: smarthire-deepface, type: pserv, property: hostport}
+      - key: AI_MEDIAPIPE_URL
+        fromService: {name: smarthire-mediapipe, type: pserv, property: hostport}
+      - key: AI_OBJECT_DETECTION_URL
+        fromService: {name: smarthire-object-detection, type: pserv, property: hostport}
+      - key: AI_EMOTION_CNN_URL
+        fromService: {name: smarthire-emotion-cnn, type: pserv, property: hostport}
+      - key: AI_WHISPER_ENABLED
+        value: true
+      - key: AI_DEEPFACE_ENABLED
+        value: true
+      - key: AI_MEDIAPIPE_ENABLED
+        value: true
+      - key: AI_OBJECT_DETECTION_ENABLED
+        value: true
+      - key: AI_EMOTION_CNN_ENABLED
+        value: true
+      - key: APP_CORS_ALLOWED_ORIGINS
+        fromService: {name: smarthire-frontend, type: web, envVarKey: RENDER_EXTERNAL_URL}
+      - key: APP_FRONTEND_BASE_URL
+        fromService: {name: smarthire-frontend, type: web, envVarKey: RENDER_EXTERNAL_URL}
+      - key: RECORDING_STORAGE_PROVIDER
+        value: s3
+      - key: S3_BUCKET
+        sync: false
+      - key: S3_REGION
+        sync: false
+      - key: S3_ENDPOINT
+        sync: false
+      - key: S3_PATH_STYLE
+        value: false
+      - key: AWS_ACCESS_KEY_ID
+        sync: false
+      - key: AWS_SECRET_ACCESS_KEY
+        sync: false
+
+  - type: pserv
+    name: smarthire-whisper
+    runtime: docker
+    plan: starter
+    dockerfilePath: ./ai-services/whisper-service/Dockerfile
+    dockerContext: ./ai-services/whisper-service
+    envVars:
+      - key: WHISPER_MODEL
+        value: small
+      - key: WHISPER_DEVICE
+        value: cpu
+      - key: WHISPER_COMPUTE_TYPE
+        value: int8
+  - type: pserv
+    name: smarthire-deepface
+    runtime: docker
+    plan: starter
+    dockerfilePath: ./ai-services/deepface-service/Dockerfile
+    dockerContext: ./ai-services/deepface-service
+  - type: pserv
+    name: smarthire-mediapipe
+    runtime: docker
+    plan: starter
+    dockerfilePath: ./ai-services/mediapipe-service/Dockerfile
+    dockerContext: ./ai-services/mediapipe-service
+  - type: pserv
+    name: smarthire-object-detection
+    runtime: docker
+    plan: starter
+    dockerfilePath: ./ai-services/object-detection-service/Dockerfile
+    dockerContext: ./ai-services/object-detection-service
+    envVars:
+      - key: YOLO_MODEL
+        value: yolov8n.pt
+      - key: YOLO_CONFIDENCE
+        value: "0.25"
+  - type: pserv
+    name: smarthire-emotion-cnn
+    runtime: docker
+    plan: starter
+    dockerfilePath: ./ai-services/emotion-cnn-service/Dockerfile
+    dockerContext: ./ai-services/emotion-cnn-service
+    envVars:
+      - key: EMOTION_CNN_MODEL
+        value: /app/model/emotion_cnn.keras
+  - type: web
+    name: smarthire-frontend
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /
+    envVars:
+      - key: BACKEND_PROXY_HOST
+        fromService: {name: smarthire-backend, type: web, property: hostport}
+      - key: OBJECT_DETECTION_PROXY_HOST
+        fromService: {name: smarthire-object-detection, type: pserv, property: hostport}

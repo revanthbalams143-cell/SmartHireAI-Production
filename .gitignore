@@ -1,0 +1,22 @@
+.smarthire-local/
+logs/
+uploads/
+
+# Local secrets and credentials
+.env
+.env.*
+!.env.example
+credentials/
+secrets/
+*.pem
+*.key
+
+# Local/generated runtime files
+*.log
+target/
+__pycache__/
+.pytest_cache/
+.mypy_cache/
+*.pyc
+*.tmp
+*.bak

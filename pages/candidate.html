@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SmartHire AI Candidate Dashboard">
+  <title>Candidate Dashboard | SmartHire AI</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/candidate-dashboard.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/module8-9-polish.css">
+  <link rel="stylesheet" href="../css/smarthire-popups.css">
+</head>
+<body class="candidate-dashboard-page">
+
+  <aside class="candidate-sidebar" id="candidateSidebar">
+    <div class="brand-row">
+      <a class="brand" href="candidate.html" aria-label="SmartHire AI dashboard">
+        <span class="brand-mark"><i class="fa-solid fa-sparkles"></i></span>
+        <span>SmartHire <b>AI</b></span>
+      </a>
+      <button class="sidebar-collapse" id="sidebarCollapse" type="button" aria-label="Collapse sidebar">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+    </div>
+
+    <div class="sidebar-search">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input type="search" placeholder="Search..." aria-label="Search SmartHire">
+      <span>⌘K</span>
+    </div>
+
+    <nav class="candidate-nav" aria-label="Candidate navigation">
+      <a class="candidate-nav-link active" href="candidate.html">
+        <i class="fa-solid fa-house"></i><span>Dashboard</span>
+      </a>
+      <a class="candidate-nav-link" href="interview-setup.html">
+        <i class="fa-solid fa-microphone-lines"></i><span>Mock Interviews</span>
+      </a>
+      <a class="candidate-nav-link" href="resume.html">
+        <i class="fa-solid fa-file-circle-check"></i><span>Resume Analyzer</span>
+      </a>
+      <a class="candidate-nav-link" href="interview-history.html">
+        <i class="fa-solid fa-clock-rotate-left"></i><span>Interview History</span>
+      </a>
+      <a class="candidate-nav-link" href="practice-assessment.html">
+        <i class="fa-solid fa-list-check"></i><span>Practice Assessment</span>
+      </a>
+      <a class="candidate-nav-link" href="performance-analytics.html">
+        <i class="fa-solid fa-chart-column"></i><span>Performance Analytics</span>
+      </a>
+      <a class="candidate-nav-link" href="improvement-progress.html">
+        <i class="fa-solid fa-arrow-trend-up"></i><span>Improvement Progress</span>
+      </a>
+      <a class="candidate-nav-link" href="reports.html">
+        <i class="fa-solid fa-file-arrow-down"></i><span>Reports</span>
+      </a>
+      <a class="candidate-nav-link" href="settings.html">
+        <i class="fa-solid fa-gear"></i><span>Settings</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-upgrade">
+      <div class="upgrade-spark"><i class="fa-solid fa-crown"></i></div>
+      <strong>Go Pro with SmartHire AI</strong>
+      <p>Unlock advanced AI feedback, unlimited practice and detailed reports.</p>
+      <a href="interview-setup.html">Explore Pro <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+
+    <div class="sidebar-profile">
+      <div class="profile-avatar"><i class="fa-solid fa-user"></i></div>
+      <div class="profile-copy">
+        <strong id="sidebarUserName">Candidate</strong>
+        <span id="sidebarUserEmail">Signed in</span>
+      </div>
+      <i class="fa-solid fa-ellipsis"></i>
+    </div>
+  </aside>
+
+  <main class="candidate-main">
+    <header class="candidate-header">
+      <button class="mobile-menu" id="mobileMenu" type="button" aria-label="Open navigation">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <div class="breadcrumb">
+        <span>Candidate</span><i class="fa-solid fa-chevron-right"></i><strong>Dashboard</strong>
+      </div>
+      <div class="header-actions">
+        <button class="header-icon" type="button" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+        <button class="header-icon notification-button" type="button" aria-label="Notifications">
+          <i class="fa-regular fa-bell"></i><span data-notification-count="true">0</span>
+        </button>
+        <button class="header-theme" id="candidateThemeToggle" type="button"><i class="fa-solid fa-moon"></i><span>Dark</span></button><button class="header-logout" id="shLogoutBtn" data-sh-logout type="button" aria-label="Log out"><i class="fa-solid fa-right-from-bracket"></i><span>Log out</span></button>
+        <div class="header-profile">
+          <div class="profile-avatar small"><i class="fa-solid fa-user"></i></div>
+          <div>
+            <strong id="dashboardUserName">Candidate</strong>
+            <span id="dashboardUserRole">Candidate</span>
+          </div>
+          <i class="fa-solid fa-chevron-down"></i>
+        </div>
+      </div>
+    </header>
+
+    <div class="candidate-content">
+      <section class="welcome-row">
+        <div>
+          <span class="eyebrow">CANDIDATE WORKSPACE</span>
+          <h1 id="welcomeHeading">Good morning, Candidate 👋</h1>
+          <p id="welcomeSubtitle">Track your progress and improve your interview skills with AI guidance.</p>
+        </div>
+        <a class="upgrade-button" href="interview-setup.html"><i class="fa-solid fa-crown"></i> Upgrade Plan</a>
+      </section>
+
+      <section class="metric-grid" aria-label="Candidate overview">
+        <article class="metric-card readiness-card">
+          <div class="metric-top"><span>Interview Readiness</span><i class="fa-solid fa-arrow-trend-up"></i></div>
+          <div class="metric-body">
+            <div class="mini-ring" id="readinessRing"><span id="readinessValue">—</span></div>
+            <div><strong id="candidateOverallPerformanceValue">—</strong><small id="candidateOverallPerformanceHint">Complete an interview to score</small></div>
+          </div>
+        </article>
+
+        <article class="metric-card ats-card">
+          <div class="metric-top"><span>Resume ATS Score</span><i class="fa-regular fa-file-lines"></i></div>
+          <div class="metric-body">
+            <div class="mini-ring green-ring" id="atsRing"><span id="atsRingValue">—</span></div>
+            <div><strong id="candidateAtsScoreValue">—</strong><small id="candidateAtsScoreHint">Run ATS analysis</small></div>
+          </div>
+        </article>
+
+        <article class="metric-card">
+          <div class="metric-top"><span>Interviews Completed</span><i class="fa-solid fa-microphone"></i></div>
+          <div class="number-metric"><strong id="candidateInterviewCountValue">—</strong><small id="candidateInterviewCountHint">No completed interviews yet</small></div>
+        </article>
+
+        <article class="metric-card">
+          <div class="metric-top"><span>Resume Health</span><i class="fa-solid fa-chart-line orange-icon"></i></div>
+          <div class="number-metric"><strong id="candidateResumeScoreValue">—</strong><small id="candidateResumeScoreHint">Upload a resume to calculate</small></div>
+        </article>
+      </section>
+
+      <section class="dashboard-grid top-grid">
+        <article class="surface-card preparation-card">
+          <div class="card-heading">
+            <div><span class="eyebrow">CONTINUE PREPARATION</span><h2 id="preparationRole">Your next interview</h2></div>
+            <a href="interview-setup.html">See all</a>
+          </div>
+          <div class="preparation-inner">
+            <div class="prep-icon"><i class="fa-solid fa-code"></i></div>
+            <div class="prep-copy">
+              <h3>AI Mock Interview</h3>
+              <p>Practice with role-specific questions and get instant AI feedback.</p>
+              <div class="progress-line"><span id="prepProgressBar"></span></div>
+              <div class="progress-meta"><span id="prepProgressText">Ready for your next session</span><strong id="prepProgressPercent">—</strong></div>
+            </div>
+            <a class="primary-action" href="interview-setup.html">Start Interview <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <article class="surface-card growth-card">
+          <div class="card-heading">
+            <div><span class="eyebrow">YOUR GROWTH JOURNEY</span><h2>Overall progress</h2></div>
+            <a href="improvement-progress.html">View all</a>
+          </div>
+          <div class="growth-ring" id="growthRing"><span id="growthValue">—</span><small>Progress</small></div>
+          <div class="growth-meta">
+            <div><span><i class="fa-solid fa-medal"></i> Current Level</span><strong id="currentLevel">Interview Ready</strong></div>
+            <div><span><i class="fa-solid fa-fire"></i> Practice Streak</span><strong>Keep going 🔥</strong></div>
+            <div><span><i class="fa-solid fa-bullseye"></i> Next Goal</span><strong>Improve communication</strong></div>
+          </div>
+        </article>
+      </section>
+
+      <section class="surface-card mock-card">
+        <div class="card-heading">
+          <div><span class="eyebrow">AI PRACTICE</span><h2>Start New Mock Interview</h2></div>
+          <a href="interview-setup.html">See all</a>
+        </div>
+        <div class="mock-grid">
+          <a class="mock-option purple" href="interview-setup.html"><span><i class="fa-solid fa-code"></i></span><strong>Technical Interview</strong><small>10 Questions · 20 min</small><b>Start Interview <i class="fa-solid fa-arrow-right"></i></b></a>
+          <a class="mock-option blue" href="interview-setup.html"><span><i class="fa-solid fa-users"></i></span><strong>HR Interview</strong><small>10 Questions · 20 min</small><b>Start Interview <i class="fa-solid fa-arrow-right"></i></b></a>
+          <a class="mock-option orange" href="interview-setup.html"><span><i class="fa-solid fa-user-tie"></i></span><strong>Behavioral Interview</strong><small>10 Questions · 20 min</small><b>Start Interview <i class="fa-solid fa-arrow-right"></i></b></a>
+          <a class="mock-option green" href="interview-setup.html"><span><i class="fa-solid fa-file-lines"></i></span><strong>Resume Based</strong><small>AI-generated questions</small><b>Start Interview <i class="fa-solid fa-arrow-right"></i></b></a>
+          <a class="mock-option purple" href="practice-assessment.html"><span><i class="fa-solid fa-laptop-code"></i></span><strong>Coding Practice</strong><small>Six algorithm questions · 30 min</small><b>Start Practice <i class="fa-solid fa-arrow-right"></i></b></a>
+        </div>
+      </section>
+
+      <section class="dashboard-grid middle-grid">
+        <article class="surface-card history-card">
+          <div class="card-heading"><div><span class="eyebrow">INTERVIEW HISTORY</span><h2>Recent Interviews</h2></div><a href="interview-history.html">View all</a></div>
+          <div class="history-table-wrap">
+            <table class="history-table">
+              <thead><tr><th>Interview</th><th>Score</th><th>Date</th><th>Status</th></tr></thead>
+              <tbody id="interviewHistoryBody"><tr><td colspan="4" class="empty-state">Loading interview history...</td></tr></tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="surface-card analytics-card">
+          <div class="card-heading"><div><span class="eyebrow">PERFORMANCE</span><h2>Performance Overview</h2></div><a href="performance-analytics.html">Details</a></div>
+          <div class="chart-wrap">
+            <svg id="performanceChart" viewBox="0 0 520 190" preserveAspectRatio="none" role="img" aria-label="Interview performance trend">
+              <defs><linearGradient id="chartFill" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-opacity=".18"/><stop offset="100%" stop-opacity="0"/></linearGradient></defs>
+              <line x1="0" y1="35" x2="520" y2="35" class="chart-grid-line"/><line x1="0" y1="80" x2="520" y2="80" class="chart-grid-line"/><line x1="0" y1="125" x2="520" y2="125" class="chart-grid-line"/><line x1="0" y1="170" x2="520" y2="170" class="chart-grid-line"/>
+              <path id="chartArea" class="chart-area" d="M0 170 L0 170 L520 170 Z"></path>
+              <polyline id="chartLine" class="chart-line" points="0,170 520,170"></polyline>
+            </svg>
+            <div class="chart-empty" id="chartEmpty">Complete interviews to build your performance trend.</div>
+          </div>
+          <div class="skill-summary">
+            <div><span>Technical</span><strong id="skillTechnical">—</strong></div>
+            <div><span>Communication</span><strong id="skillCommunication">—</strong></div>
+            <div><span>Confidence</span><strong id="skillConfidence">—</strong></div>
+            <div><span>Problem Solving</span><strong id="skillProblemSolving">—</strong></div>
+          </div>
+        </article>
+      </section>
+
+      <section class="dashboard-grid bottom-grid">
+        <article class="surface-card resume-insight-card">
+          <div class="card-heading"><div><span class="eyebrow">RESUME ANALYSIS</span><h2>Your Resume Health</h2></div><a href="resume.html">Open resume</a></div>
+          <div class="resume-insight">
+            <div class="ats-large-ring" id="atsLargeRing"><span id="atsLargeValue">—</span><small>ATS Score</small></div>
+            <div class="check-list">
+              <p><i class="fa-solid fa-circle-check"></i> Skills detected</p>
+              <p><i class="fa-solid fa-circle-check"></i> Education detected</p>
+              <p><i class="fa-solid fa-circle-check"></i> Experience detected</p>
+              <p><i class="fa-solid fa-circle-check"></i> Projects detected</p>
+            </div>
+            <div class="resume-suggestions">
+              <span>AI Suggestions</span>
+              <p><i class="fa-solid fa-circle-exclamation"></i> Review your latest AI resume suggestions.</p>
+              <p><i class="fa-solid fa-wand-magic-sparkles"></i> Use the analyzer to improve your ATS match.</p>
+              <a href="resume.html">View Full Analysis <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="surface-card report-card">
+          <div class="card-heading"><div><span class="eyebrow">LATEST REPORT</span><h2>Interview Report</h2></div><a href="reports.html">View all</a></div>
+          <div class="latest-report">
+            <div class="report-title"><span class="report-icon"><i class="fa-solid fa-file-lines"></i></span><div><strong id="latestReportRole">No report yet</strong><small id="latestReportDate">Complete an interview to generate a report</small></div><b id="latestReportScore">—</b></div>
+            <div class="report-metrics">
+              <div><span>Technical</span><strong id="reportTechnical">—</strong></div>
+              <div><span>Communication</span><strong id="reportCommunication">—</strong></div>
+              <div><span>Problem Solving</span><strong id="reportProblemSolving">—</strong></div>
+              <div><span>Confidence</span><strong id="reportConfidence">—</strong></div>
+            </div>
+            <div class="report-actions"><a id="candidateLatestReportLink" href="interview-report.html">View Report</a><button id="downloadAnalyticsReport" type="button"><i class="fa-solid fa-download"></i> Download PDF</button></div>
+          </div>
+        </article>
+      </section>
+
+
+      <section class="surface-card" style="margin-top:18px;">
+        <div class="card-heading"><div><span class="eyebrow">AI WEAK-AREA PREDICTION</span><h2>Priority Practice Areas</h2></div><a href="practice-assessment.html">Practice</a></div>
+        <div id="candidateWeakAreas" class="check-list"><p>Complete an interview to receive weak-area predictions.</p></div>
+      </section>
+
+      <section class="ai-recommendation">
+        <div class="ai-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+        <div><span class="eyebrow">AI RECOMMENDATION</span><h3>Keep improving one skill at a time.</h3><p id="aiRecommendationText">Based on your interview history, SmartHire will highlight the areas that need the most practice.</p></div>
+        <a href="practice-assessment.html">Practice Now <i class="fa-solid fa-arrow-right"></i></a>
+      </section>
+    </div>
+  </main>
+
+  <script src="../js/api-client.js"></script>
+  <script src="../js/candidate-dashboard.js"></script>
+<script src="../js/smarthire-theme.js"></script><script src="../js/role-guard.js"></script>
+<script src="../js/smarthire-notifications.js"></script>
+<script src="../js/global-ui.js"></script>
+</body>
+</html>
