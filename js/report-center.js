@@ -197,4 +197,4 @@
       dlBtn.addEventListener('click', () => downloadAnalyticsPdf(dlBtn));
     }
   });
-})();').forEach(b=>b.addEventListener('click',()=>download(b.dataset.id,b)));host.querySelectorAll('.report-email').forEach(b=>b.onclick=()=>sendEmail(b.dataset.id));const top=document.getElementById('downloadAnalyticsReport');if(top&&latest)top.onclick=()=>download(latest.interviewId,top);}catch(e){console.warn('Report center failed',e);document.getElementById('reportsLoadError')?.classList.remove('hidden')}}document.addEventListener('DOMContentLoaded',load)})();
+  })();
